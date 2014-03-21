@@ -1,3 +1,7 @@
+<?php
+session_start();
+require_once('include.php');
+?>
 <html>
 <head>
   <title>Let's Date</title>
@@ -13,11 +17,6 @@
 </head>
 <body>
 <div class="container">
-  <?php
-  require_once('include.php');
-  session_start();
-  ?>
-
   <script language='javascript' type='text/javascript'>
     var secs = 2;
     var URL;

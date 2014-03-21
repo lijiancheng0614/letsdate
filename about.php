@@ -1,6 +1,6 @@
-﻿<?php
-require_once('include.php');
+<?php ob_start();
 session_start();
+require_once('include.php');
 do_html_header('关于');
 ?>
 <style type="text/css">

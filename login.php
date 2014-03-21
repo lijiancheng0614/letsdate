@@ -1,6 +1,6 @@
 <?php
-require_once('include.php');
 session_start();
+require_once('include.php');
 do_html_header('登录');
 ?>
   <div class="container">

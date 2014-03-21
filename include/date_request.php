@@ -11,24 +11,20 @@ function get_date_detail($id)
   }
   if ($result->num_rows == 0)
     throw false;
-  return $result->fetch_row();
+  return $result->fetch_assoc();
 }
 
 function get_date_member($id)
 {
   $conn = db_connect();
-  $result = $conn->query("select * from datemember
+  $result = $conn->query("select useremail from datemember
                           where id='".$id."'");
   if (!$result){
     throw false;
   }
   if ($result->num_rows == 0)
     return array();
-  $member_array = array();
-  for ($count = 1; $row = $result->fetch_row(); ++$count){
-    $member_array[$count] = $row[1];
-  }
-  return $member_array;
+  return $result;
 }
 
 function get_date($email)
@@ -37,24 +33,24 @@ function get_date($email)
   $result = $conn->query("select * from user
                           where email='".$email."'");
   if (!$result){
-    throw false;
+    return array();
   }
   if ($result->num_rows == 0)
-    throw false;
+    return array();
   $result = $conn->query("select * from date
                           where useremail='".$email."'");
   //order by endtime desc");
   if (!$result){
-    throw false;
+    return array();
   }
   $date_array = array();
-  for ($count = 1; $row = $result->fetch_row(); ++$count){
-    $date_array[$count] = $row[0];
+  for ($count = 1; $row = $result->fetch_assoc(); ++$count){
+    $date_array[$count] = $row['id'];
   }
   $result = $conn->query("select id from datemember
                           where useremail='".$email."'");
-  for (; $row = $result->fetch_row(); ++$count){
-    $date_array[$count] = $row[0];
+  for (; $row = $result->fetch_assoc(); ++$count){
+    $date_array[$count] = $row['id'];
   }
   return array_unique($date_array);
 }
@@ -75,8 +71,8 @@ function get_mydate($email)
     throw false;
   }
   $date_array = array();
-  for ($count = 1; $row = $result->fetch_row(); ++$count){
-    $date_array[$count] = $row[0];
+  for ($count = 1; $row = $result->fetch_assoc(); ++$count){
+    $date_array[$count] = $row['id'];
   }
   return $date_array;
 }
@@ -104,8 +100,8 @@ function add_date($email, $title, $begintime, $endtime, $location, $bulletin, $m
   }
   if ($result->num_rows == 0)
     throw false;
-  $row = $result->fetch_row();
-  $id = $row[0] + 1;
+  $row = $result->fetch_assoc();
+  $id = $row['max(id)'] + 1;
   $result = $conn->query("insert into date values
                           (".$id.", '".$title."', '"
     .$email."', '"
@@ -188,15 +184,15 @@ function search_date($keywords)
                           location like '%".$keywords."%' or
                           bulletin like '%".$keywords."%'");
   if (!$result){
-    throw new Exception('抱歉，请重新再试！');
+    return array();
   }
   if ($result->num_rows == 0)
     return array();
-  $id_array = array();
-  for ($count = 1; $row = $result->fetch_row(); ++$count){
-    $id_array[$count] = $row[0];
+  $date_array = array();
+  for ($count = 1; $row = $result->fetch_assoc(); ++$count){
+    $date_array[$count] = $row['id'];
   }
-  return $id_array;
+  return $date_array;
 }
 
 function recommand_date($email)
@@ -217,8 +213,8 @@ function recommand_date($email)
     throw false;
   }
   $date_array = array();
-  for ($count = 1; $row = $result->fetch_row(); ++$count){
-    $date_array[$count] = $row[0];
+  for ($count = 1; $row = $result->fetch_assoc(); ++$count){
+    $date_array[$count] = $row['id'];
   }
   $date = get_date($email);
   return array_diff($date_array, $date);

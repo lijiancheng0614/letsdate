@@ -1,6 +1,6 @@
-<?php
-require_once('include.php');
+<?php ob_start();
 session_start();
+require_once('include.php');
 if (isset($_SESSION['valid_user'])){
   $email = $_SESSION['valid_user'];
   $date_array = get_date($email);
@@ -8,6 +8,7 @@ if (isset($_SESSION['valid_user'])){
 else{
   $_SESSION['error'] = "您还没有登录！";
   header("location:login.php");
+  exit();
 }
 do_html_header('我的聚会');
 ?>
@@ -54,47 +55,9 @@ do_html_header('我的聚会');
       <div class="span9">
         <h2>我的聚会</h2>
         <br/>
-        <table id="contestTable" sortCol="-1"
-               class="table table-hover table-bordered">
-          <thead>
-          <tr>
-            <th onClick="sortTable('contestTable',0)" style="cursor:pointer">聚会名称</th>
-            <th onClick="sortTable('contestTable',1)" style="cursor:pointer">开始时间</th>
-            <th onClick="sortTable('contestTable',2)" style="cursor:pointer">结束时间</th>
-            <th onClick="sortTable('contestTable',3)" style="cursor:pointer">地点</th>
-            <th onClick="sortTable('contestTable',4)" style="cursor:pointer">发起人</th>
-          </tr>
-          </thead>
-          <tbody>
-          <?php
-          foreach ($date_array as $id){
-            $obj = get_date_detail($id);
-            echo "<tr>\n";
-            echo "  <td>";
-            echo "<a href='date_detail.php?id=";
-            echo $obj[0];
-            echo "'>";
-            echo $obj[1];
-            echo "</a>";
-            echo "</td>\n";
-            echo "  <td>";
-            echo $obj[3];
-            echo "</td>\n";
-            echo "  <td>";
-            echo $obj[4];
-            echo "</td>\n";
-            echo "  <td>";
-            echo $obj[5];
-            echo "</td>\n";
-            echo "  <td>";
-            echo $obj[2];
-            echo "</td>\n";
-            //var_dump($obj);
-            echo "</tr>\n";
-          }
-          ?>
-          </tbody>
-        </table>
+        <?php
+        do_html_table($date_array);
+        ?>
         <p class="pull-right">
           共
           <?php

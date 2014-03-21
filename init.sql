@@ -1,11 +1,13 @@
-create database letsdate;
-use letsdate;
-
 create table user (
   email varchar(100) primary key,
   name varchar(20) not null,
   passwd char(50) not null,
-  phone varchar(30)
+  phone varchar(30),
+  is_phone_private boolean,
+  location varchar(140),
+  is_location_private boolean,
+  intro varchar(140),
+  is_intro_private boolean
 );
 
 create table date (
@@ -32,7 +34,3 @@ create table datecomment (
   comment varchar(140) not null,
   foreign key(id) references date(id)
 );
-
-grant select, insert, update, delete
-on letsdate.*
-to admin@localhost identified by 'passwd';

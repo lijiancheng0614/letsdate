@@ -1,6 +1,6 @@
-<?php
-require_once('include.php');
+<?php ob_start();
 session_start();
+require_once('include.php');
 if (isset($_SESSION['valid_user'])){
   $email = $_SESSION['valid_user'];
 }
@@ -33,9 +33,11 @@ try{
   add_date($email, $title, $begintime, $endtime, $location, $bulletin, $member);
   $_SESSION['success'] = "发起成功！";
   header("location:date.php");
+  exit();
 }
 catch (Exception $e){
   $_SESSION['error'] = $e->getMessage();
   header("location:add_date_form.php");
+  exit();
 }
 ?>

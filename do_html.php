@@ -1,4 +1,5 @@
-<?php function do_html_header($title)
+<?php
+function do_html_header($title)
 {
   ?>
   <!DOCTYPE html>
@@ -8,6 +9,7 @@
     <meta name="description" content="letsdate">
     <meta http-equiv="Content-Type" content="text/html; charset=unicode">
     <meta name="author" content="LiJiancheng" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css"/>
@@ -24,6 +26,7 @@
           &nbsp;
         </div>
         <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -91,6 +94,7 @@
             <ul class="nav pull-right">
               <li class="dropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown">
+
                   <?php echo get_name($_SESSION['valid_user']); ?>
                   <b class="caret"></b>
                 </a>
@@ -167,7 +171,10 @@ function do_html_sidebar()
     </div>
     <!--/.well -->
   </div>
-<?php } ?>
+<?php
+}
+
+?>
 
 <?php
 function do_html_footer()
@@ -180,4 +187,59 @@ function do_html_footer()
   </div>
   </body>
   </html>
-<?php } ?>
+<?php
+}
+
+?>
+
+<?php
+function do_html_table($date_array)
+{
+  ?>
+          <table id="contestTable" sortCol="-1"
+               class="table table-hover table-bordered">
+          <thead>
+          <tr>
+            <th onClick="sortTable('contestTable',0)" style="cursor:pointer">聚会名称</th>
+            <th onClick="sortTable('contestTable',1)" style="cursor:pointer">开始时间</th>
+            <th onClick="sortTable('contestTable',2)" style="cursor:pointer">结束时间</th>
+            <th onClick="sortTable('contestTable',3)" style="cursor:pointer">地点</th>
+            <th onClick="sortTable('contestTable',4)" style="cursor:pointer">发起人</th>
+          </tr>
+          </thead>
+          <tbody>
+          <?php
+          foreach ($date_array as $id){
+            $obj = get_date_detail($id);
+            echo "<tr>\n";
+            echo "  <td>";
+            echo "<a href='date_detail.php?id=";
+            echo $obj['id'];
+            echo "'>";
+            echo $obj['title'];
+            echo "</a>";
+            echo "</td>\n";
+            echo "  <td>";
+            echo $obj['begintime'];
+            echo "</td>\n";
+            echo "  <td>";
+            echo $obj['endtime'];
+            echo "</td>\n";
+            echo "  <td>";
+            echo $obj['location'];
+            echo "</td>\n";
+            echo "  <td>";
+            echo "<a href='user_detail.php?user=";
+            echo $obj['useremail'];
+            echo "'>";
+            echo $obj['useremail'];
+            echo "</td>\n";
+            //var_dump($obj);
+            echo "</tr>\n";
+          }
+          ?>
+          </tbody>
+        </table>
+<?php
+}
+?>

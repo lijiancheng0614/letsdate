@@ -61,7 +61,7 @@ footer {
  * --------------------------------------------------
  */
 .form-signin {
-    max-width: 36%;
+    max-width: 40%;
     margin: 0 auto 20px;
     text-align: center;
 }
@@ -72,6 +72,7 @@ footer {
 
 .form-signin .checkbox,
 .form-signin label,
+.form-signin textarea,
 .form-signin input {
     height: auto;
     padding: 4px 4px;
@@ -81,6 +82,7 @@ footer {
     margin-left: -16%;
 }
 
+.form-signin textarea,
 .form-signin input {
     margin-left: -50%;
 }

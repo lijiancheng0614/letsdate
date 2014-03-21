@@ -1,6 +1,6 @@
-﻿<?php
-require_once('include.php');
+<?php ob_start();
 session_start();
+require_once('include.php');
 if (isset($_POST['email']) && isset($_POST['passwd'])){
   $email = $_POST['email'];
   $passwd = $_POST['passwd'];
@@ -12,6 +12,7 @@ if (isset($_POST['email']) && isset($_POST['passwd'])){
     $_SESSION['email'] = $email;
     $_SESSION['error'] = $e->getMessage();
     header("location:login.php");
+    exit();
   }
 }
 do_html_header('首页');

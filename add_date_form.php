@@ -1,9 +1,10 @@
-<?php
-require_once('include.php');
+<?php ob_start();
 session_start();
+require_once('include.php');
 if (!isset($_SESSION['valid_user'])){
   $_SESSION['error'] = "您还没有登录！";
   header("location:login.php");
+  exit();
 }
 do_html_header('新的聚会');
 ?>

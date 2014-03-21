@@ -1,18 +1,19 @@
-<?php
-require_once('include.php');
+<?php ob_start();
 session_start();
+require_once('include.php');
 if (isset($_SESSION['valid_user'])){
   $email = $_SESSION['valid_user'];
 }
 else{
   $_SESSION['error'] = "您还没有登录！";
   header("location:login.php");
+  exit();
 }
 if (isset($_GET['id'])){
   $id = $_GET['id'];
 }
 $date = get_date_detail($id);
-do_html_header($date[1]);
+do_html_header($date['title']);
 ?>
 
   <div class="container">
@@ -49,7 +50,7 @@ do_html_header($date[1]);
                      id="title" name="title" placeholder="聚会名称"
                 <?php
                 echo 'value="';
-                echo $date[1];
+                echo $date['title'];
                 echo '"';
                 ?>
                      required>
@@ -64,7 +65,7 @@ do_html_header($date[1]);
                      id="begintime" name="begintime"
                 <?php
                 echo 'value="';
-                echo $date[3];
+                echo $date['begintime'];
                 echo '"';
                 ?>
                      required>
@@ -79,7 +80,7 @@ do_html_header($date[1]);
                      id="endtime" name="endtime"
                 <?php
                 echo 'value="';
-                echo $date[4];
+                echo $date['endtime'];
                 echo '"';
                 ?>
                 >
@@ -94,7 +95,7 @@ do_html_header($date[1]);
                      id="location" name="location"
                 <?php
                 echo 'value="';
-                echo $date[5];
+                echo $date['location'];
                 echo '"';
                 ?>
                 >
@@ -107,7 +108,7 @@ do_html_header($date[1]);
             <div class="controls">
               <textarea rows="4" class="span9"
                         id="bulletin" name="bulletin" placeholder=""><?php
-                echo $date[6];
+                echo $date['bulletin'];
                 ?></textarea>
             </div>
           </div>
@@ -122,13 +123,13 @@ do_html_header($date[1]);
                         id="member" name="member" placeholder="一行一个成员"><?php
                 $member_array = get_date_member($id);
                 foreach ($member_array as $member){
-                  echo "$member\n";
+                  echo $member['useremail']."\n";
                 }
                 ?></textarea>
             </div>
           </div>
           <?php
-          if ($email == $date[2]){
+          if ($email == $date['useremail']){
             ?>
             <br/>
             <button class="offset3 btn btn-large btn-warning" type="submit">

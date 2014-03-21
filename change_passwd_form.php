@@ -1,10 +1,11 @@
-<?php
-require_once('include.php');
+<?php ob_start();
 session_start();
+require_once('include.php');
 do_html_header('修改密码');
 if (!isset($_SESSION['valid_user'])){
   $_SESSION['log'] = "您还没有登录！";
   header("location:loading.php");
+  exit();
 }
 ?>
   <div class="container">

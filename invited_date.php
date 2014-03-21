@@ -1,6 +1,6 @@
-<?php
-require_once('include.php');
+<?php ob_start();
 session_start();
+require_once('include.php');
 if (isset($_SESSION['valid_user'])){
   $email = $_SESSION['valid_user'];
   $date_array = get_invited_date($email);
@@ -8,6 +8,7 @@ if (isset($_SESSION['valid_user'])){
 else{
   $_SESSION['error'] = "您还没有登录！";
   header("location:login.php");
+  exit();
 }
 do_html_header('受邀的聚会');
 ?>
@@ -72,22 +73,22 @@ do_html_header('受邀的聚会');
             echo "<tr>\n";
             echo "  <td>";
             echo "<a href='date_detail.php?id=";
-            echo $obj[0];
+            echo $obj['id'];
             echo "'>";
-            echo $obj[1];
+            echo $obj['title'];
             echo "</a>";
             echo "</td>\n";
             echo "  <td>";
-            echo $obj[3];
+            echo $obj['begintime'];
             echo "</td>\n";
             echo "  <td>";
-            echo $obj[4];
+            echo $obj['endtime'];
             echo "</td>\n";
             echo "  <td>";
-            echo $obj[5];
+            echo $obj['location'];
             echo "</td>\n";
             echo "  <td>";
-            echo $obj[2];
+            echo $obj['useremail'];
             echo "</td>\n";
             //var_dump($obj);
             echo "</tr>\n";
