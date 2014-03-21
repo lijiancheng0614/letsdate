@@ -18,7 +18,9 @@ do_html_header('重置密码');
       <label class="control-label" for="email">邮箱</label>
 
       <div class="controls">
-        <input type="text"
+        <div class="input-prepend">
+            <span class="add-on"><i class="icon-envelope"></i></span>
+              <input type="text"
                id="email" name="email" placeholder="邮箱"
           <?php
           if (isset($_SESSION['email'])){
@@ -28,6 +30,7 @@ do_html_header('重置密码');
           }
           ?>
                required autofocus>
+        </div>
       </div>
     </div>
     <button class="btn btn-large btn-primary" type="submit">

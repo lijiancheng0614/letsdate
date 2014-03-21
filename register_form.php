@@ -19,8 +19,11 @@ do_html_header('注册');
         <label class="control-label" for="email">邮箱</label>
 
         <div class="controls">
-          <input type="text"
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-envelope"></i></span>
+              <input type="text"
                  id="email" name="email" placeholder="邮箱" required autofocus>
+          </div>
         </div>
       </div>
 
@@ -28,7 +31,9 @@ do_html_header('注册');
         <label class="control-label" for="username">昵称</label>
 
         <div class="controls">
-          <input type="text"
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-user"></i></span>
+              <input type="text"
                  id="username" name="username" placeholder="昵称"
             <?php
             if (isset($_SESSION['username'])){
@@ -38,6 +43,7 @@ do_html_header('注册');
             }
             ?>
                  required>
+          </div>
         </div>
       </div>
 
@@ -45,8 +51,11 @@ do_html_header('注册');
         <label class="control-label" for="passwd">密码</label>
 
         <div class="controls">
-          <input type="password"
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-lock"></i></span>
+              <input type="password"
                  id="passwd" name="passwd" placeholder="请输入密码" required>
+          </div>
         </div>
       </div>
       <button class="btn btn-large btn-warning" type="submit">

@@ -16,6 +16,7 @@ function do_html_header($title)
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/scrollUp.js"></script>
   </head>
   <body>
   <div class="navbar navbar-fixed-top navbar-inverse">

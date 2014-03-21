@@ -78,8 +78,7 @@ footer {
     margin-left: -16%;
 }
 
-.form-signin textarea,
-.form-signin input {
+.form-signin .controls {
     margin-left: -50%;
 }
 
