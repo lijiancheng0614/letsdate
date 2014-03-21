@@ -152,15 +152,7 @@ function update_profile($email, $username,
                             is_intro_private = ".$is_intro_private."
                             where email = '".$email."'");
   if (!$result){
-    throw new Exception("update user
-                            set name = '".$username."', 
-                            phone = '".$phone."', 
-                            is_phone_private = ".$is_phone_private.", 
-                            location = '".$location."', 
-                            is_location_private = ".$is_location_private.", 
-                            intro = '".$intro."', 
-                            is_intro_private = ".$is_intro_private."
-                            where email = '".$email."'".'抱歉，请重新再试！');
+    throw new Exception('抱歉，请重新再试！');
   }
   else{
     return true;

@@ -16,7 +16,7 @@ require_once('include.php');
   <script type="text/javascript" src="js/bootstrap.js"></script>
 </head>
 <body>
-<div class="container">
+<div class="container maindiv">
   <script language='javascript' type='text/javascript'>
     var secs = 2;
     var URL;

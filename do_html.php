@@ -122,7 +122,7 @@ function do_html_header($title)
       <!-- /.container -->
     </div>
   </div><!-- /.navbar -->
-  <div class="container">
+  <div class="container maindiv">
 <?php } ?>
 
 <?php
@@ -180,6 +180,7 @@ function do_html_sidebar()
 function do_html_footer()
 {
   ?>
+  <a id="scrollUp" href="#top" title="" style="position: fixed; z-index: 2147483647"></a>
   <hr>
   <footer>
     <p class="text-center">&copy; LiJiancheng 2014</p>

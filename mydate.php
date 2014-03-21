@@ -56,12 +56,12 @@ do_html_header('发起的聚会');
         <h2>发起的聚会</h2>
         <br/>
         <?php
-        do_html_table();
+        do_html_table($date_array);
         ?>
         <p class="pull-right">
           共
           <?php
-          do_html_table($date_array);
+          echo count($date_array);
           ?>
           个聚会&nbsp;
         </p>
