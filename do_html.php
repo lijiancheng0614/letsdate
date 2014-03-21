@@ -14,9 +14,11 @@ function do_html_header($title)
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css"/>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/scrollUp.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.js"></script>
   </head>
   <body>
   <div class="navbar navbar-fixed-top navbar-inverse">
@@ -198,15 +200,19 @@ function do_html_footer()
 function do_html_table($date_array)
 {
   ?>
-          <table id="contestTable" sortCol="-1"
-               class="table table-hover table-bordered">
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function() {
+        $('#data_table').dataTable();
+      } );
+    </script>
+        <table id="data_table" class="table table-hover table-bordered">
           <thead>
           <tr>
-            <th onClick="sortTable('contestTable',0)" style="cursor:pointer">聚会名称</th>
-            <th onClick="sortTable('contestTable',1)" style="cursor:pointer">开始时间</th>
-            <th onClick="sortTable('contestTable',2)" style="cursor:pointer">结束时间</th>
-            <th onClick="sortTable('contestTable',3)" style="cursor:pointer">地点</th>
-            <th onClick="sortTable('contestTable',4)" style="cursor:pointer">发起人</th>
+            <th>聚会名称</th>
+            <th>开始时间</th>
+            <th>结束时间</th>
+            <th>地点</th>
+            <th>发起人</th>
           </tr>
           </thead>
           <tbody>

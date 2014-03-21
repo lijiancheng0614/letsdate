@@ -16,38 +16,6 @@ else{
 }
 do_html_header('搜索');
 ?>
-  <script type="text/javascript">
-    var n = 0;
-    function sortTable(tableID, iCol) {
-      var oTable = document.getElementById(tableID);
-      var oTbody = oTable.tBodies[0];
-      var oRows = oTbody.rows;
-
-      var arr = new Array();
-      for (var i = 0; i < oRows.length; i++) arr.push(oRows[i]);
-      if (oTable.sortCol == iCol) arr.reverse();
-      else {
-        if (n % 2 == 0) arr.sort(compare(iCol, 1));
-        else if (n % 2 == 1) arr.sort(compare(iCol, -1));
-      }
-
-      var oFragment = document.createDocumentFragment();
-      for (var i = 0; i < arr.length; i++) oFragment.appendChild(arr[i]);
-      oTbody.appendChild(oFragment);
-      oTable.sortCol = iCol;
-    }
-    ;
-
-    function compare(iCol, direction) {
-      return function compare(row1, row2) {
-        var value1 = row1.cells[iCol].innerHTML;
-        var value2 = row2.cells[iCol].innerHTML;
-        return direction * value1.localeCompare(value2);
-      };
-    }
-    ;
-  </script>
-
   <div class="container">
     <?php if (isset($_SESSION['success'])){
       echo '<div class="alert alert-success">';
@@ -62,13 +30,6 @@ do_html_header('搜索');
         <?php
         do_html_table($date_array);
         ?>
-        <p class="pull-right">
-          共
-          <?php
-          echo count($date_array);
-          ?>
-          个聚会&nbsp;
-        </p>
       </div>
 
       <?php
