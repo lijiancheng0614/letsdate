@@ -19,17 +19,17 @@ do_html_header('重置密码');
 
       <div class="controls">
         <div class="input-prepend">
-            <span class="add-on"><i class="icon-envelope"></i></span>
-              <input type="text"
-               id="email" name="email" placeholder="邮箱"
-          <?php
-          if (isset($_SESSION['email'])){
-            echo 'value="';
-            echo $_SESSION['email'];
-            echo '"';
-          }
-          ?>
-               required autofocus>
+          <span class="add-on"><i class="icon-envelope"></i></span>
+          <input type="text"
+                 id="email" name="email" placeholder="邮箱"
+            <?php
+            if (isset($_SESSION['email'])){
+              echo 'value="';
+              echo $_SESSION['email'];
+              echo '"';
+            }
+            ?>
+                 required autofocus>
         </div>
       </div>
     </div>

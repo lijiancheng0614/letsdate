@@ -29,7 +29,7 @@ $is_location_private = 0;
 $is_intro_private = 0;
 if (isset($_POST['checkbox'])){
   $checkbox = $_POST['checkbox'];
-  foreach ($checkbox as $key => $value) {
+  foreach ($checkbox as $key => $value){
     if ($value == 'is_phone_private') $is_phone_private = true;
     else if ($value == 'is_location_private') $is_location_private = true;
     else if ($value == 'is_intro_private') $is_intro_private = true;

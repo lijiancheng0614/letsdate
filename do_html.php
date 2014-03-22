@@ -13,12 +13,15 @@ function do_html_header($title)
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css"/>
-    <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/scrollUp.js"></script>
     <script type="text/javascript" src="js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
   </head>
   <body>
@@ -201,54 +204,55 @@ function do_html_footer()
 function do_html_table($date_array)
 {
   ?>
-    <script type="text/javascript" charset="utf-8">
-      $(document).ready(function() {
-        $('#data_table').dataTable();
-      } );
-    </script>
-        <table id="data_table" class="table table-hover table-bordered">
-          <thead>
-          <tr>
-            <th>聚会名称</th>
-            <th>开始时间</th>
-            <th>结束时间</th>
-            <th>地点</th>
-            <th>发起人</th>
-          </tr>
-          </thead>
-          <tbody>
-          <?php
-          foreach ($date_array as $id){
-            $obj = get_date_detail($id);
-            echo "<tr>\n";
-            echo "  <td>";
-            echo "<a href='date_detail.php?id=";
-            echo $obj['id'];
-            echo "'>";
-            echo $obj['title'];
-            echo "</a>";
-            echo "</td>\n";
-            echo "  <td>";
-            echo $obj['begintime'];
-            echo "</td>\n";
-            echo "  <td>";
-            echo $obj['endtime'];
-            echo "</td>\n";
-            echo "  <td>";
-            echo $obj['location'];
-            echo "</td>\n";
-            echo "  <td>";
-            echo "<a href='user_detail.php?user=";
-            echo $obj['useremail'];
-            echo "'>";
-            echo $obj['useremail'];
-            echo "</td>\n";
-            //var_dump($obj);
-            echo "</tr>\n";
-          }
-          ?>
-          </tbody>
-        </table>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+      $('#data_table').dataTable();
+    });
+  </script>
+  <table id="data_table" class="table table-hover table-bordered">
+    <thead>
+    <tr>
+      <th>聚会名称</th>
+      <th>开始时间</th>
+      <th>结束时间</th>
+      <th>地点</th>
+      <th>发起人</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+    foreach ($date_array as $id){
+      $obj = get_date_detail($id);
+      echo "<tr>\n";
+      echo "  <td>";
+      echo "<a href='date_detail.php?id=";
+      echo $obj['id'];
+      echo "'>";
+      echo $obj['title'];
+      echo "</a>";
+      echo "</td>\n";
+      echo "  <td>";
+      echo $obj['begintime'];
+      echo "</td>\n";
+      echo "  <td>";
+      echo $obj['endtime'];
+      echo "</td>\n";
+      echo "  <td>";
+      echo $obj['location'];
+      echo "</td>\n";
+      echo "  <td>";
+      echo "<a href='user_detail.php?user=";
+      echo $obj['useremail'];
+      echo "'>";
+      echo $obj['useremail'];
+      echo "</td>\n";
+      //var_dump($obj);
+      echo "</tr>\n";
+    }
+    ?>
+    </tbody>
+  </table>
 <?php
 }
+
 ?>

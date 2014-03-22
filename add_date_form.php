@@ -23,57 +23,53 @@ do_html_header('新的聚会');
             unset($_SESSION['error']);
           } ?>
 
-          <div class="control-group">
-            <label class="control-label span2" for="title">聚会名称</label>
+          <div class="row-fluid">
+            <div class="control-group span6">
+              <label class="control-label span3" for="title">聚会名称</label>
 
-            <div class="controls">
-              <input type="text" class="span9"
-                     id="title" name="title" placeholder="聚会名称"
-                <?php
-                if (isset($_SESSION['title'])){
-                  echo 'value="';
-                  echo $_SESSION['title'];
-                  echo '"';
-                }
-                ?>
-                     required autofocus>
+              <div class="controls span3">
+                <input type="text" class="input-xlarge"
+                       id="title" name="title" required>
+              </div>
+            </div>
+
+            <div class="control-group span6">
+              <label class="control-label span3" for="begintime">开始时间</label>
+
+              <div class="controls input-append span3 date form_datetime">
+                <input type="text" class="input-medium"
+                       id="begintime" name="begintime" required>
+                <span class="add-on"><i class="icon-th"></i></span>
+              </div>
             </div>
           </div>
 
-          <div class="control-group">
-            <label class="control-label span2" for="begintime">开始时间</label>
+          <div class="row-fluid">
+            <div class="control-group span6">
+              <label class="control-label span3" for="location">聚会地点</label>
 
-            <div class="controls">
-              <input type="text" class="span9"
-                     id="begintime" name="begintime"
-                     required>
+              <div class="controls span3">
+                <input type="text" class="input-xlarge"
+                       id="location" name="location">
+              </div>
             </div>
-          </div>
 
-          <div class="control-group">
-            <label class="control-label span2" for="endtime">结束时间</label>
+            <div class="control-group span6">
+              <label class="control-label span3" for="endtime">结束时间</label>
 
-            <div class="controls">
-              <input type="text" class="span9"
-                     id="endtime" name="endtime"
-                >
-            </div>
-          </div>
-
-          <div class="control-group">
-            <label class="control-label span2" for="location">聚会地点</label>
-
-            <div class="controls">
-              <input type="text" class="span9"
-                     id="location" name="location">
+              <div class="controls input-append span3 date form_datetime">
+                <input type="text" class="input-medium"
+                       id="endtime" name="endtime">
+                <span class="add-on"><i class="icon-th"></i></span>
+              </div>
             </div>
           </div>
 
           <div class="control-group">
             <label class="control-label span2" for="bulletin">公告/备注</label>
 
-            <div class="controls">
-              <textarea rows="4" class="span9"
+            <div class="controls span10">
+              <textarea rows="4" class="span10"
                         id="bulletin" name="bulletin" placeholder=""></textarea>
             </div>
           </div>
@@ -83,11 +79,12 @@ do_html_header('新的聚会');
               成员
             </label>
 
-            <div class="controls">
-              <textarea rows="8" class="span9"
+            <div class="controls span10">
+              <textarea rows="8" class="span10"
                         id="member" name="member" placeholder="一行一个成员"></textarea>
             </div>
           </div>
+
           <br/>
           <button class="offset3 btn btn-large btn-success" type="submit">
             &nbsp;发起&nbsp;
@@ -100,6 +97,14 @@ do_html_header('新的聚会');
       ?>
     </div>
   </div>
+
+  <script type="text/javascript">
+      $(".form_datetime").datetimepicker({
+          language: 'zh-CN',
+          format: "yyyy-MM-dd hh:mm:ss",
+          autoclose: 1
+      });
+  </script>
 
 <?php
 do_html_footer();

@@ -129,9 +129,9 @@ function notify_password($email, $password)
 }
 
 function update_profile($email, $username,
-  $phone, $is_phone_private,
-  $location, $is_location_private,
-  $intro, $is_intro_private)
+                        $phone, $is_phone_private,
+                        $location, $is_location_private,
+                        $intro, $is_intro_private)
 {
   $conn = db_connect();
   $result = $conn->query("select * from user

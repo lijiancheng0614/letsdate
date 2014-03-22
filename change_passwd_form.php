@@ -26,8 +26,8 @@ if (!isset($_SESSION['valid_user'])){
         <div class="controls">
           <div class="input-prepend">
             <span class="add-on"><i class="icon-lock"></i></span>
-              <input type="password" id="old_passwd"
-                 name="old_passwd" placeholder="旧密码" required autofocus>
+            <input type="password" id="old_passwd"
+                   name="old_passwd" placeholder="旧密码" required autofocus>
           </div>
         </div>
       </div>
@@ -37,8 +37,8 @@ if (!isset($_SESSION['valid_user'])){
         <div class="controls">
           <div class="input-prepend">
             <span class="add-on"><i class="icon-lock"></i></span>
-              <input type="password" id="new_passwd"
-                 name="new_passwd" placeholder="新密码" required>
+            <input type="password" id="new_passwd"
+                   name="new_passwd" placeholder="新密码" required>
           </div>
         </div>
       </div>
@@ -48,8 +48,8 @@ if (!isset($_SESSION['valid_user'])){
         <div class="controls">
           <div class="input-prepend">
             <span class="add-on"><i class="icon-ok"></i></span>
-              <input type="password" id="new_passwd2"
-                 name="new_passwd2" placeholder="再次输入新密码" required>
+            <input type="password" id="new_passwd2"
+                   name="new_passwd2" placeholder="再次输入新密码" required>
           </div>
         </div>
       </div>

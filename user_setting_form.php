@@ -62,6 +62,7 @@ do_html_header('账户设置');
 
       <div class="control-group">
         <label class="control-label" for="phone">手机号码</label>
+
         <div class="controls">
           <input type="text"
                  id="phone" name="phone" placeholder="请输入手机号码"
@@ -70,15 +71,15 @@ do_html_header('账户设置');
             echo $user['phone'];
             echo '"';
             ?>
-          >
+            >
           <label class="checkbox pull-right">
             <input type="checkbox" id="checkbox"
-            name="checkbox[]" value="is_phone_private"
+                   name="checkbox[]" value="is_phone_private"
               <?php
-                if ($user['is_phone_private'])
-                  echo "checked";
+              if ($user['is_phone_private'])
+                echo "checked";
               ?>
-            >不公开
+              >不公开
           </label>
         </div>
       </div>
@@ -94,15 +95,15 @@ do_html_header('账户设置');
             echo $user['location'];
             echo '"';
             ?>
-          >
+            >
           <label class="checkbox pull-right">
             <input type="checkbox" id="checkbox"
-            name="checkbox[]" value="is_location_private"
+                   name="checkbox[]" value="is_location_private"
               <?php
-                if ($user['is_location_private'])
-                  echo "checked";
+              if ($user['is_location_private'])
+                echo "checked";
               ?>
-            >不公开
+              >不公开
           </label>
         </div>
       </div>
@@ -113,16 +114,16 @@ do_html_header('账户设置');
         <div class="controls">
           <textarea rows="4" placeholder="请输入简介"
                     id="intro" name="intro"><?php
-                echo $user['intro'];
-                ?></textarea>
+            echo $user['intro'];
+            ?></textarea>
           <label class="checkbox pull-right">
             <input type="checkbox" id="checkbox"
-            name="checkbox[]" value="is_intro_private"
+                   name="checkbox[]" value="is_intro_private"
               <?php
-                if ($user['is_intro_private'])
-                  echo "checked";
+              if ($user['is_intro_private'])
+                echo "checked";
               ?>
-            >不公开
+              >不公开
           </label>
         </div>
       </div>

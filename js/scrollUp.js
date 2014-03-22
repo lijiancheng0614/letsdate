@@ -1,17 +1,18 @@
 /*
 
-scrollUp v1.1.0
-Author: Mark Goodyear - http://www.markgoodyear.com
-Git: https://github.com/markgoodyear/scrollup
+ scrollUp v1.1.0
+ Author: Mark Goodyear - http://www.markgoodyear.com
+ Git: https://github.com/markgoodyear/scrollup
 
-Copyright 2013 Mark Goodyear
-Licensed under the MIT license
-http://www.opensource.org/licenses/mit-license.php
+ Copyright 2013 Mark Goodyear
+ Licensed under the MIT license
+ http://www.opensource.org/licenses/mit-license.php
 
-Twitter: @markgdyr
+ Twitter: @markgdyr
 
-*/
- ;(function($) {
+ */
+;
+(function ($) {
 
     $.scrollUp = function (options) {
 
@@ -44,31 +45,31 @@ Twitter: @markgdyr
         }
 
         // Minium CSS to make the magic happen
-        $(scrollId).css({'display':'none','position': 'fixed','z-index': '2147483647'});
+        $(scrollId).css({'display': 'none', 'position': 'fixed', 'z-index': '2147483647'});
 
         // Active point overlay
         if (o.activeOverlay) {
-            $("body").append("<div id='"+ o.scrollName +"-active'></div>");
-            $(scrollId+"-active").css({ 'position': 'absolute', 'top': o.topDistance+'px', 'width': '100%', 'border-top': '1px dotted '+o.activeOverlay, 'z-index': '2147483647' });
+            $("body").append("<div id='" + o.scrollName + "-active'></div>");
+            $(scrollId + "-active").css({ 'position': 'absolute', 'top': o.topDistance + 'px', 'width': '100%', 'border-top': '1px dotted ' + o.activeOverlay, 'z-index': '2147483647' });
         }
 
         // Scroll function
-        $(window).scroll(function(){    
+        $(window).scroll(function () {
             switch (o.animation) {
                 case "fade":
-                    $( ($(window).scrollTop() > o.topDistance) ? $(scrollId).fadeIn(o.animationInSpeed) : $(scrollId).fadeOut(o.animationOutSpeed) );
+                    $(($(window).scrollTop() > o.topDistance) ? $(scrollId).fadeIn(o.animationInSpeed) : $(scrollId).fadeOut(o.animationOutSpeed));
                     break;
                 case "slide":
-                    $( ($(window).scrollTop() > o.topDistance) ? $(scrollId).slideDown(o.animationInSpeed) : $(scrollId).slideUp(o.animationOutSpeed) );
+                    $(($(window).scrollTop() > o.topDistance) ? $(scrollId).slideDown(o.animationInSpeed) : $(scrollId).slideUp(o.animationOutSpeed));
                     break;
                 default:
-                    $( ($(window).scrollTop() > o.topDistance) ? $(scrollId).show(0) : $(scrollId).hide(0) );
+                    $(($(window).scrollTop() > o.topDistance) ? $(scrollId).show(0) : $(scrollId).hide(0));
             }
         });
 
         // To the top
-        $(scrollId).click( function(event) {
-            $('html, body').animate({scrollTop:0}, o.topSpeed);
+        $(scrollId).click(function (event) {
+            $('html, body').animate({scrollTop: 0}, o.topSpeed);
             event.preventDefault();
         });
 

@@ -42,71 +42,77 @@ do_html_header($date['title']);
             unset($_SESSION['success']);
           } ?>
 
-          <div class="control-group">
-            <label class="control-label span2" for="title">聚会名称</label>
+          <div class="row-fluid">
+            <div class="control-group span6">
+              <label class="control-label span3" for="title">聚会名称</label>
 
-            <div class="controls">
-              <input type="text" class="span9"
-                     id="title" name="title" placeholder="聚会名称"
-                <?php
-                echo 'value="';
-                echo $date['title'];
-                echo '"';
-                ?>
-                     required>
+              <div class="controls span3">
+                <input type="text" class="input-xlarge"
+                       id="title" name="title"
+                  <?php
+                  echo 'value="';
+                  echo $date['title'];
+                  echo '"';
+                  ?>
+                       required>
+              </div>
+            </div>
+
+            <div class="control-group span6">
+              <label class="control-label span3" for="begintime">开始时间</label>
+
+              <div class="controls input-append span3 date form_datetime">
+                <input type="text" class="input-medium"
+                       id="begintime" name="begintime"
+                  <?php
+                  echo 'value="';
+                  echo $date['begintime'];
+                  echo '"';
+                  ?>
+                       required>
+                <span class="add-on"><i class="icon-th"></i></span>
+              </div>
             </div>
           </div>
 
-          <div class="control-group">
-            <label class="control-label span2" for="begintime">开始时间</label>
+          <div class="row-fluid">
+            <div class="control-group span6">
+              <label class="control-label span3" for="location">聚会地点</label>
 
-            <div class="controls">
-              <input type="text" class="span9"
-                     id="begintime" name="begintime"
-                <?php
-                echo 'value="';
-                echo $date['begintime'];
-                echo '"';
-                ?>
-                     required>
+              <div class="controls span3">
+                <input type="text" class="input-xlarge"
+                       id="location" name="location"
+                  <?php
+                  echo 'value="';
+                  echo $date['location'];
+                  echo '"';
+                  ?>
+                  >
+              </div>
             </div>
-          </div>
 
-          <div class="control-group">
-            <label class="control-label span2" for="endtime">结束时间</label>
+            <div class="control-group span6">
+              <label class="control-label span3" for="endtime">结束时间</label>
 
-            <div class="controls">
-              <input type="text" class="span9"
-                     id="endtime" name="endtime"
-                <?php
-                echo 'value="';
-                echo $date['endtime'];
-                echo '"';
-                ?>
-                >
-            </div>
-          </div>
-
-          <div class="control-group">
-            <label class="control-label span2" for="location">聚会地点</label>
-
-            <div class="controls">
-              <input type="text" class="span9"
-                     id="location" name="location"
-                <?php
-                echo 'value="';
-                echo $date['location'];
-                echo '"';
-                ?>
-                >
+              <div class="controls input-append span3 date form_datetime">
+                <input type="text" class="input-medium"
+                       id="endtime" name="endtime"
+                  <?php
+                  echo 'value="';
+                  echo $date['endtime'];
+                  echo '"';
+                  ?>
+                  >
+                <span class="add-on"><i class="icon-th"></i></span>
+              </div>
             </div>
           </div>
 
           <div class="control-group">
             <label class="control-label span2" for="bulletin">公告/备注</label>
 
-            <div class="controls">
-              <textarea rows="4" class="span9"
+            <div class="controls span10">
+              <textarea rows="4" class="span10"
                         id="bulletin" name="bulletin" placeholder=""><?php
                 echo $date['bulletin'];
                 ?></textarea>
@@ -118,8 +124,8 @@ do_html_header($date['title']);
               成员
             </label>
 
-            <div class="controls">
-              <textarea rows="8" class="span9"
+            <div class="controls span10">
+              <textarea rows="8" class="span10"
                         id="member" name="member" placeholder="一行一个成员"><?php
                 $member_array = get_date_member($id);
                 foreach ($member_array as $member){
@@ -128,10 +134,12 @@ do_html_header($date['title']);
                 ?></textarea>
             </div>
           </div>
+
           <?php
           if ($email == $date['useremail']){
             ?>
             <br/>
+
             <button class="offset3 btn btn-large btn-warning" type="submit">
               &nbsp;修改&nbsp;
             </button>
@@ -144,6 +152,7 @@ do_html_header($date['title']);
               >
               &nbsp;删除&nbsp;
             </a>
+
           <?php
           }
           ?>
@@ -155,6 +164,14 @@ do_html_header($date['title']);
       ?>
     </div>
   </div>
+
+  <script type="text/javascript">
+      $(".form_datetime").datetimepicker({
+          language: 'zh-CN',
+          format: "yyyy-MM-dd hh:mm:ss",
+          autoclose: 1
+      });
+  </script>
 
 <?php
 do_html_footer();
