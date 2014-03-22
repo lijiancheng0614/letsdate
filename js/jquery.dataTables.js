@@ -2711,7 +2711,7 @@
 			 * sZeroRecords - assuming that is given.
 			 */
 			if ( !oLanguage.sEmptyTable && oLanguage.sZeroRecords &&
-				oDefaults.sEmptyTable === "No data available in table" )
+				oDefaults.sEmptyTable === "暂时没有聚会，赶紧发起一个吧~" )
 			{
 				_fnMap( oLanguage, oLanguage, 'sZeroRecords', 'sEmptyTable' );
 			}
@@ -9182,7 +9182,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sFirst": "First",
+				"sFirst": "第一页",
 			
 			
 				/**
@@ -9203,7 +9203,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sLast": "Last",
+				"sLast": "最后一页",
 			
 			
 				/**
@@ -9254,19 +9254,19 @@
 			 * parameter - if it is not given, the value of sZeroRecords will be used
 			 * instead (either the default or given value).
 			 *  @type string
-			 *  @default No data available in table
+			 *  @default 暂时没有聚会，赶紧发起一个吧~
 			 *  @dtopt Language
 			 * 
 			 *  @example
 			 *    $(document).ready( function() {
 			 *      $('#example').dataTable( {
 			 *        "oLanguage": {
-			 *          "sEmptyTable": "No data available in table"
+			 *          "sEmptyTable": "暂时没有聚会，赶紧发起一个吧~"
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No data available in table",
+			"sEmptyTable": "暂时没有聚会，赶紧发起一个吧~",
 		
 		
 			/**
@@ -9326,7 +9326,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(filtered from _MAX_ total entries)",
+			"sInfoFiltered": "（在 _MAX_ 个聚会中搜索）",
 		
 		
 			/**
@@ -9429,7 +9429,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLoadingRecords": "Loading...",
+			"sLoadingRecords": "加载中...",
 		
 		
 			/**
@@ -9448,7 +9448,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sProcessing": "Processing...",
+			"sProcessing": "获取数据中，请耐心等候~",
 		
 		
 			/**
@@ -9512,7 +9512,7 @@
 			 * displayed after filtering. sEmptyTable is shown when there is simply no
 			 * information in the table at all (regardless of filtering).
 			 *  @type string
-			 *  @default No matching records found
+			 *  @default 没有找到匹配的聚会，重新再搜一下吧~
 			 *  @dtopt Language
 			 * 
 			 *  @example
@@ -9524,7 +9524,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sZeroRecords": "No matching records found"
+			"sZeroRecords": "没有找到匹配的聚会，重新再搜一下吧~"
 		},
 	
 	

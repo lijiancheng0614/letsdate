@@ -1,16 +1,3 @@
-$(document).ready(function(){
-     $.scrollUp({
-    	scrollName: 'scrollUp', // Element ID
-    	topDistance: '150', // Distance from top before showing element (px)
-    	topSpeed: 300, // Speed back to top (ms)
-    	animation: 'fade', // Fade, slide, none
-    	animationInSpeed: 300, // Animation in speed (ms)
-    	animationOutSpeed: 300, // Animation out speed (ms)
-    	scrollText: '', // Text for element
-    	activeOverlay: false  // Set CSS color to display scrollUp active point, e.g '#00FFFF'
-    });
-});
-
 /*
 
 scrollUp v1.1.0

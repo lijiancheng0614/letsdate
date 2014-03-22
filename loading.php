@@ -15,6 +15,7 @@ require_once('include.php');
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript" src="js/scrollUp.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
 <div class="container maindiv">
