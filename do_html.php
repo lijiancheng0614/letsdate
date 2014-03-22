@@ -11,10 +11,10 @@ function do_html_header($title)
     <meta name="author" content="LiJiancheng" charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -209,7 +209,7 @@ function do_html_table($date_array)
       $('#data_table').dataTable();
     });
   </script>
-  <table id="data_table" class="table table-hover table-bordered">
+  <table id="data_table" class="table table-hover">
     <thead>
     <tr>
       <th>聚会名称</th>
