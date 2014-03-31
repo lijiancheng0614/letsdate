@@ -1,9 +1,6 @@
 <?php ob_start();
 session_start();
 require_once('include.php');
-if (isset($_GET['id'])){
-  $id = $_GET['id'];
-}
 if (isset($_SESSION['valid_user'])){
   $email = $_SESSION['valid_user'];
 }
@@ -12,11 +9,16 @@ else{
   header("location:login.php");
   exit();
 }
-
+if (isset($_POST['new_comment'])){
+  $new_comment = $_POST['new_comment'];
+}
+if (isset($_GET['id'])){
+  $id = $_GET['id'];
+}
 try{
-  delete_date($id);
-  $_SESSION['success'] = "删除成功！";
-  header("location:date.php");
+  add_date_comment($id, $email, $new_comment, date('Y-m-d H:i:s'));
+  $_SESSION['success'] = "评论成功！";
+  header("location:date_detail.php?id=".$id);
   exit();
 }
 catch (Exception $e){

@@ -4,6 +4,11 @@ require_once('include.php');
 if (isset($_SESSION['valid_user'])){
   $email = $_SESSION['valid_user'];
 }
+else{
+  $_SESSION['error'] = "您还没有登录！";
+  header("location:login.php");
+  exit();
+}
 if (isset($_POST['title'])){
   $title = $_POST['title'];
 }

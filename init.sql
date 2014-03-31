@@ -49,10 +49,13 @@ CREATE TABLE IF NOT EXISTS `date` (
 
 CREATE TABLE IF NOT EXISTS `datecomment` (
   `id` int(11) NOT NULL,
+  `dateid` int(11) NOT NULL,
   `useremail` varchar(100) NOT NULL,
-  `comment` varchar(140) NOT NULL,
-  FOREIGN KEY (`id`) REFERENCES `date` (`id`),
-  KEY `id` (`id`)
+  `comment` text NOT NULL,
+  `time` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`dateid`) REFERENCES `date` (`id`),
+  KEY `dateid` (`dateid`)
 );
 
 -- --------------------------------------------------------

@@ -163,6 +163,20 @@ function update_date($id, $email, $title, $begintime, $endtime, $location, $bull
 function delete_date($id)
 {
   $conn = db_connect();
+  $result = $conn->query("select * from date
+                          where id = ".$id);
+
+  if (!$result){
+    throw new Exception('抱歉，请重新再试！');
+  }
+  if ($result->num_rows == 0)
+    throw new Exception('抱歉，请重新再试！');
+  $row = $result->fetch_assoc();
+
+  if ($row['useremail'] != $email)
+    throw new Exception('抱歉！您不能删除该聚会！');
+
+
   $result = $conn->query("delete from datemember
                           where id = ".$id);
   if (!$result){
@@ -218,6 +232,96 @@ function recommand_date($email)
   }
   $date = get_date($email);
   return array_diff($date_array, $date);
+}
+
+function add_date_comment($dateid, $useremail, $comment, $time)
+{
+  $conn = db_connect();
+  $result = $conn->query("select * from date
+                          where id='".$dateid."'");
+  if (!$result){
+    return false;
+  }
+  if ($result->num_rows == 0)
+    return false;
+
+  $result = $conn->query("select max(id) from datecomment");
+  if (!$result){
+    throw new Exception('抱歉，请重新再试！');
+  }
+  if ($result->num_rows == 0)
+    throw new Exception('抱歉，请重新再试！');
+
+  $row = $result->fetch_assoc();
+  $id = $row['max(id)'] + 1;
+
+  $result = $conn->query("insert into datecomment values
+                          (".$id.", ".$dateid.
+                            ", '".$useremail.
+                            "', '".$comment.
+                            "', '".$time."')");
+  if (!$result){
+    throw new Exception('抱歉，请重新再试！');
+  }
+  return true;
+}
+
+function update_date_comment($id, $comment)
+{
+  $conn = db_connect();
+  $result = $conn->query("select * from datecomment
+                          where id='".$id."'");
+  if (!$result){
+    throw new Exception('抱歉，请重新再试！');
+  }
+  if ($result->num_rows == 0)
+    throw new Exception('抱歉，请重新再试！');
+
+  $result = $conn->query("update into datecomment
+                          set
+                          comment = '".$comment."'
+                          where id = ".$id);
+  if (!$result){
+    throw new Exception('抱歉，请重新再试！');
+  }
+  return true;
+}
+
+function delete_date_comment($id, $email)
+{
+  $conn = db_connect();
+  $result = $conn->query("select * from datecomment
+                          where id = ".$id);
+
+  if (!$result){
+    throw new Exception('抱歉，请重新再试！');
+  }
+  if ($result->num_rows == 0)
+    throw new Exception('抱歉，请重新再试！');
+  $row = $result->fetch_assoc();
+
+  if ($row['useremail'] != $email)
+    throw new Exception('抱歉！您不能删除该评论！');
+
+  $result = $conn->query("delete from datecomment
+                          where id = ".$id);
+  if (!$result){
+    throw new Exception('抱歉，请重新再试！');
+  }
+  return true;
+}
+
+function get_date_comment($dateid)
+{
+  $conn = db_connect();
+  $result = $conn->query("select * from datecomment
+                          where dateid='".$dateid."'");
+  if (!$result){
+    throw false;
+  }
+  if ($result->num_rows == 0)
+    return array();
+  return $result;
 }
 
 ?>
