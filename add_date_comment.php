@@ -19,11 +19,15 @@ try{
   add_date_comment($id, $email, $new_comment, date('Y-m-d H:i:s'));
   $_SESSION['success'] = "评论成功！";
   header("location:date_detail.php?id=".$id);
+  header("Cache-Control: no-cache");
+  header("Pragma: no-cache");
   exit();
 }
 catch (Exception $e){
   $_SESSION['error'] = $e->getMessage();
   header("location:date_detail.php?id=".$id);
+  header("Cache-Control: no-cache");
+  header("Pragma: no-cache");
   exit();
 }
 ?>

@@ -26,7 +26,7 @@ do_html_header($date['title']);
           echo $id;
           echo "'";
           ?>
-        >
+          >
           <div class="row-fluid">
             <h2 class="span9">聚会详情</h2>
             <?php
@@ -34,17 +34,17 @@ do_html_header($date['title']);
               ?>
               <br/>
               <div class="span3">
-                
+
                 <a class="pull-right btn btn-primary"
                   <?php
                   echo "href='date_edit.php?id=";
                   echo $id;
                   echo "'";
                   ?>
-                >
-                &nbsp;编辑&nbsp;
+                  >
+                  &nbsp;编辑&nbsp;
                 </a>
-                
+
               </div>
             <?php
             }
@@ -199,10 +199,10 @@ do_html_header($date['title']);
                           placeholder="发表我的评论"></textarea>
               </dd>
             </dl>
-              
-              <button class="offset3 btn btn-large btn-primary" type="submit">
-                &nbsp;发表评论&nbsp;
-              </button>
+
+            <button class="offset3 btn btn-large btn-primary" type="submit">
+              &nbsp;发表评论&nbsp;
+            </button>
 
           </div>
 

@@ -234,6 +234,7 @@ function recommand_date($email)
   return array_diff($date_array, $date);
 }
 
+
 function add_date_comment($dateid, $useremail, $comment, $time)
 {
   $conn = db_connect();
@@ -257,9 +258,9 @@ function add_date_comment($dateid, $useremail, $comment, $time)
 
   $result = $conn->query("insert into datecomment values
                           (".$id.", ".$dateid.
-                            ", '".$useremail.
-                            "', '".$comment.
-                            "', '".$time."')");
+    ", '".$useremail.
+    "', '".$comment.
+    "', '".$time."')");
   if (!$result){
     throw new Exception('抱歉，请重新再试！');
   }

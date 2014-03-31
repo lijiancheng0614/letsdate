@@ -7,7 +7,8 @@ do_html_header('关于');
   ol, p {
     font-size: 16px;
   }
-  ol li{
+
+  ol li {
     line-height: 200%;
   }
 </style>
@@ -51,7 +52,7 @@ do_html_header('关于');
       <br/>
       <code>
         试试在简介中输入&lt;a href="http://blog.sina.com.cn/lijiancheng5201314"&gt;
-          我的blog
+        我的blog
         &lt;/a&gt;
       </code>
     </li>

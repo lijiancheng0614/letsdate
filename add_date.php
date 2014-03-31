@@ -38,6 +38,8 @@ try{
   add_date($email, $title, $begintime, $endtime, $location, $bulletin, $member);
   $_SESSION['success'] = "发起成功！";
   header("location:date.php");
+  header("Cache-Control: no-cache");
+  header("Pragma: no-cache");
   exit();
 }
 catch (Exception $e){
