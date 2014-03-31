@@ -245,6 +245,7 @@ function do_html_table($date_array)
       echo $obj['useremail'];
       echo "'>";
       echo $obj['useremail'];
+      echo "</a>";
       echo "</td>\n";
       //var_dump($obj);
       echo "</tr>\n";

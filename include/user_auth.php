@@ -10,7 +10,7 @@ function get_user_detail($email)
     throw false;
   }
   if ($result->num_rows == 0)
-    throw false;
+    return false;
   return $result->fetch_assoc();
 }
 

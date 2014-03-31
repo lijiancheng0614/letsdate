@@ -121,7 +121,19 @@ do_html_header($date['title']);
                 <pre><?php
                   $member_array = get_date_member($id);
                   foreach ($member_array as $member){
-                    echo $member['useremail']."\n";
+                    $email = $member['useremail'];
+                    $detail = get_user_detail($email);
+                    if ($detail){
+                      echo "<a href='user_detail.php?user=";
+                      echo $email;
+                      echo "'>";
+                      echo $detail['name'];
+                      echo " ($email)";
+                      echo "</a>\n";
+                    }
+                    else {
+                      echo $email."\n";
+                    }
                   }
                   ?></pre>
               </dd>
