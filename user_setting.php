@@ -39,6 +39,8 @@ try{
     $location, $is_location_private, $intro);
   $_SESSION['success'] = "修改成功！";
   header("location:user_setting_form.php");
+  header("Cache-Control: no-cache");
+  header("Pragma: no-cache");
   exit();
 }
 catch (Exception $e){

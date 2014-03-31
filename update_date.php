@@ -49,6 +49,8 @@ try{
   update_date($id, $email, $title, $begintime, $endtime, $location, $bulletin, $member);
   $_SESSION['success'] = "修改成功！";
   header("location:date_detail.php?id=".$id);
+  header("Cache-Control: no-cache");
+  header("Pragma: no-cache");
   exit();
 }
 catch (Exception $e){

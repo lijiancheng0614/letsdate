@@ -54,7 +54,7 @@ do_html_header($date['title']);
                   echo $date['title'];
                   echo '"';
                   ?>
-                required>
+                       required>
               </dd>
             </dl>
 
@@ -68,7 +68,7 @@ do_html_header($date['title']);
                   echo $date['begintime'];
                   echo '"';
                   ?>
-                  required>
+                       required>
                 <span class="add-on"><i class="icon-th"></i></span>
               </dd>
             </dl>
@@ -76,7 +76,7 @@ do_html_header($date['title']);
           </div>
 
           <div class="row-fluid">
-            
+
             <dl class="dl-horizontal span6">
               <dt class="span4">聚会地点</dt>
               <dd class="span8">
@@ -112,18 +112,18 @@ do_html_header($date['title']);
 
             <dl class="dl-horizontal">
               <dt class="span2">公告/备注</dt>
-                <dd class="span9">
-                  <textarea rows="4" class="span12"
-                            id="bulletin" name="bulletin"><?php
-                    echo $date['bulletin'];
-                    ?></textarea>
-                </dd>
+              <dd class="span9">
+                <textarea rows="4" class="span12"
+                          id="bulletin" name="bulletin"><?php
+                  echo $date['bulletin'];
+                  ?></textarea>
+              </dd>
             </dl>
 
           </div>
 
           <div class="row-fluid">
-            
+
             <dl class="dl-horizontal">
               <dt class="span2">成员</dt>
               <dd class="span9">
@@ -136,7 +136,7 @@ do_html_header($date['title']);
                   ?></textarea>
               </dd>
             </dl>
-            
+
           </div>
 
           <?php
@@ -170,11 +170,11 @@ do_html_header($date['title']);
   </div>
 
   <script type="text/javascript">
-      $(".form_datetime").datetimepicker({
-          language: 'zh-CN',
-          format: "yyyy-MM-dd hh:mm:ss",
-          autoclose: 1
-      });
+    $(".form_datetime").datetimepicker({
+      language: 'zh-CN',
+      format: "yyyy-MM-dd hh:mm:ss",
+      autoclose: 1
+    });
   </script>
 
 <?php

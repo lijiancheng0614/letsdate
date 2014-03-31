@@ -32,7 +32,7 @@ do_html_header("用户资料");
           <dt class="span2">邮箱</dt>
           <dd class="span9">
             <?php
-              echo $user['email'];
+            echo $user['email'];
             ?>
           </dd>
         </dl>
@@ -41,7 +41,7 @@ do_html_header("用户资料");
           <dt class="span2">昵称</dt>
           <dd class="span9">
             <?php
-              echo $user['name'];
+            echo $user['name'];
             ?>
           </dd>
         </dl>
@@ -53,7 +53,7 @@ do_html_header("用户资料");
             <dt class="span2">手机号码</dt>
             <dd class="span9">
               <?php
-                echo $user['phone'];
+              echo $user['phone'];
               ?>
             </dd>
           </dl>
@@ -68,7 +68,7 @@ do_html_header("用户资料");
             <dt class="span2">所在地</dt>
             <dd class="span9">
               <?php
-                echo $user['location'];
+              echo $user['location'];
               ?>
             </dd>
           </dl>
@@ -80,12 +80,12 @@ do_html_header("用户资料");
           <dt class="span2">简介</dt>
           <dd class="span9">
             <pre class="help-inline span10"
-              id="intro" name="intro"><?php
-                  echo $user['intro'];
-                ?></pre>
+                 id="intro" name="intro"><?php
+              echo $user['intro'];
+              ?></pre>
           </dd>
         </dl>
-          
+
       </div>
 
     </div>

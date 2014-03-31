@@ -34,7 +34,7 @@ do_html_header($date['title']);
               ?>
               <br/>
               <div class="span3">
-                <button class="pull-right btn btn-warning" type="submit">
+                <button class="pull-right btn btn-primary" type="submit">
                   &nbsp;编辑&nbsp;
                 </button>
               </div>
@@ -57,13 +57,13 @@ do_html_header($date['title']);
           } ?>
 
           <div class="row-fluid">
-            
+
             <dl class="dl-horizontal span6">
               <dt class="span4">聚会名称</dt>
               <dd class="span8">
                 <?php
-                    echo $date['title'];
-                  ?>
+                echo $date['title'];
+                ?>
               </dd>
             </dl>
 
@@ -71,21 +71,21 @@ do_html_header($date['title']);
               <dt class="span4">开始时间</dt>
               <dd class="span8">
                 <?php
-                    echo $date['begintime'];
-                  ?>
+                echo $date['begintime'];
+                ?>
               </dd>
             </dl>
 
           </div>
 
           <div class="row-fluid">
-            
+
             <dl class="dl-horizontal span6">
               <dt class="span4">聚会地点</dt>
               <dd class="span8">
                 <?php
-                    echo $date['location'];
-                  ?>
+                echo $date['location'];
+                ?>
               </dd>
             </dl>
 
@@ -93,37 +93,37 @@ do_html_header($date['title']);
               <dt class="span4">结束时间</dt>
               <dd class="span8">
                 <?php
-                    echo $date['endtime'];
-                  ?>
+                echo $date['endtime'];
+                ?>
               </dd>
             </dl>
 
           </div>
 
           <div class="row-fluid">
-            
+
             <dl class="dl-horizontal">
               <dt class="span2">公告/备注</dt>
               <dd class="span9">
                 <pre><?php
                   echo $date['bulletin'];
-                ?></pre>
+                  ?></pre>
               </dd>
             </dl>
 
           </div>
 
           <div class="row-fluid">
-            
+
             <dl class="dl-horizontal">
               <dt class="span2">成员</dt>
               <dd class="span9">
                 <pre><?php
-                $member_array = get_date_member($id);
-                foreach ($member_array as $member){
-                  echo $member['useremail']."\n";
-                }
-                ?></pre>
+                  $member_array = get_date_member($id);
+                  foreach ($member_array as $member){
+                    echo $member['useremail']."\n";
+                  }
+                  ?></pre>
               </dd>
             </dl>
 

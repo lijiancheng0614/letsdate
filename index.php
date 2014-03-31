@@ -200,32 +200,32 @@ do_html_header('首页');
       <div class="frame">
         <table class="table table-">
           <thead>
-            <tr>
-              <th>#</th>
-              <th>■■■</th>
-              <th>■■■</th>
-              <th>■■■</th>
-            </tr>
+          <tr>
+            <th>#</th>
+            <th>■■■</th>
+            <th>■■■</th>
+            <th>■■■</th>
+          </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>■■■</td>
-              <td>■■■</td>
-              <td>■■■</td>
-            </tr>
-            <tr class="scroll-del">
-              <td>2</td>
-              <td>■■■</td>
-              <td>■■■</td>
-              <td>■■■</td>
-            </tr>
-            <tr class="scroll-shift">
-              <td>3</td>
-              <td>■■■</td>
-              <td>■■■</td>
-              <td>■■■</td>
-            </tr>
+          <tr>
+            <td>1</td>
+            <td>■■■</td>
+            <td>■■■</td>
+            <td>■■■</td>
+          </tr>
+          <tr class="scroll-del">
+            <td>2</td>
+            <td>■■■</td>
+            <td>■■■</td>
+            <td>■■■</td>
+          </tr>
+          <tr class="scroll-shift">
+            <td>3</td>
+            <td>■■■</td>
+            <td>■■■</td>
+            <td>■■■</td>
+          </tr>
           </tbody>
         </table>
       </div>

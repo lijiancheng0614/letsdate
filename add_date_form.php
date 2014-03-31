@@ -30,7 +30,7 @@ do_html_header('新的聚会');
               <dd class="span8">
                 <input type="text" class="input-xlarge"
                        id="title" name="title"
-                required>
+                       required>
               </dd>
             </dl>
 
@@ -39,7 +39,7 @@ do_html_header('新的聚会');
               <dd class="span8 input-append date form_datetime">
                 <input type="text" class="input-medium"
                        id="begintime" name="begintime"
-                  required>
+                       required>
                 <span class="add-on"><i class="icon-th"></i></span>
               </dd>
             </dl>
@@ -72,16 +72,16 @@ do_html_header('新的聚会');
 
             <dl class="dl-horizontal">
               <dt class="span2">公告/备注</dt>
-                <dd class="span9">
-                  <textarea rows="4" class="span12"
-                            id="bulletin" name="bulletin"></textarea>
-                </dd>
+              <dd class="span9">
+                <textarea rows="4" class="span12"
+                          id="bulletin" name="bulletin"></textarea>
+              </dd>
             </dl>
 
           </div>
 
           <div class="row-fluid">
-            
+
             <dl class="dl-horizontal">
               <dt class="span2">成员</dt>
               <dd class="span9">
@@ -89,7 +89,7 @@ do_html_header('新的聚会');
                           id="member" name="member" placeholder="一行一个成员邮箱"></textarea>
               </dd>
             </dl>
-            
+
           </div>
 
           <br/>

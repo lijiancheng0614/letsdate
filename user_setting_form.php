@@ -42,7 +42,7 @@ do_html_header('账户设置');
               echo $user['email'];
               echo '"';
               ?>
-              disabled>
+                   disabled>
           </dd>
         </dl>
 
@@ -56,7 +56,7 @@ do_html_header('账户设置');
               echo $user['name'];
               echo '"';
               ?>
-              required>
+                   required>
           </dd>
         </dl>
 
@@ -116,7 +116,7 @@ do_html_header('账户设置');
           </dd>
         </dl>
 
-        <button class="offset3 btn btn-large btn-primary" type="submit">
+        <button class="offset3 btn btn-large btn-warning" type="submit">
           &nbsp;保存&nbsp;
         </button>
       </form>
