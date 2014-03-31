@@ -19,7 +19,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `location` text,
   `is_location_private` tinyint(1) NOT NULL DEFAULT '0',
   `intro` text,
-  `is_intro_private` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`email`)
 );
 

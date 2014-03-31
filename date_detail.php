@@ -22,12 +22,26 @@ do_html_header($date['title']);
         <form class="form-horizontal well"
               method="post"
           <?php
-          echo "action='update_date.php?id=";
+          echo "action='date_edit.php?id=";
           echo $id;
           echo "'";
           ?>
           >
-          <h2>聚会详情</h2>
+          <div class="row-fluid">
+            <h2 class="span9">聚会详情</h2>
+            <?php
+            if ($email == $date['useremail']){
+              ?>
+              <br/>
+              <div class="span3">
+                <button class="pull-right btn btn-warning" type="submit">
+                  &nbsp;编辑&nbsp;
+                </button>
+              </div>
+            <?php
+            }
+            ?>
+          </div>
           <br/>
           <?php if (isset($_SESSION['error'])){
             echo '<div class="alert alert-error">';
@@ -43,119 +57,78 @@ do_html_header($date['title']);
           } ?>
 
           <div class="row-fluid">
-            <div class="control-group span6">
-              <label class="control-label span3" for="title">聚会名称</label>
-
-              <div class="controls span3">
-                <input type="text" class="input-xlarge"
-                       id="title" name="title"
-                  <?php
-                  echo 'value="';
-                  echo $date['title'];
-                  echo '"';
+            
+            <dl class="dl-horizontal span6">
+              <dt class="span4">聚会名称</dt>
+              <dd class="span8">
+                <?php
+                    echo $date['title'];
                   ?>
-                       required>
-              </div>
-            </div>
+              </dd>
+            </dl>
 
-            <div class="control-group span6">
-              <label class="control-label span3" for="begintime">开始时间</label>
-
-              <div class="controls input-append span3 date form_datetime">
-                <input type="text" class="input-medium"
-                       id="begintime" name="begintime"
-                  <?php
-                  echo 'value="';
-                  echo $date['begintime'];
-                  echo '"';
+            <dl class="dl-horizontal span6">
+              <dt class="span4">开始时间</dt>
+              <dd class="span8">
+                <?php
+                    echo $date['begintime'];
                   ?>
-                       required>
-                <span class="add-on"><i class="icon-th"></i></span>
-              </div>
-            </div>
+              </dd>
+            </dl>
+
           </div>
 
           <div class="row-fluid">
-            <div class="control-group span6">
-              <label class="control-label span3" for="location">聚会地点</label>
-
-              <div class="controls span3">
-                <input type="text" class="input-xlarge"
-                       id="location" name="location"
-                  <?php
-                  echo 'value="';
-                  echo $date['location'];
-                  echo '"';
+            
+            <dl class="dl-horizontal span6">
+              <dt class="span4">聚会地点</dt>
+              <dd class="span8">
+                <?php
+                    echo $date['location'];
                   ?>
-                  >
-              </div>
-            </div>
+              </dd>
+            </dl>
 
-            <div class="control-group span6">
-              <label class="control-label span3" for="endtime">结束时间</label>
-
-              <div class="controls input-append span3 date form_datetime">
-                <input type="text" class="input-medium"
-                       id="endtime" name="endtime"
-                  <?php
-                  echo 'value="';
-                  echo $date['endtime'];
-                  echo '"';
+            <dl class="dl-horizontal span6">
+              <dt class="span4">结束时间</dt>
+              <dd class="span8">
+                <?php
+                    echo $date['endtime'];
                   ?>
-                  >
-                <span class="add-on"><i class="icon-th"></i></span>
-              </div>
-            </div>
+              </dd>
+            </dl>
+
           </div>
 
-          <div class="control-group">
-            <label class="control-label span2" for="bulletin">公告/备注</label>
+          <div class="row-fluid">
+            
+            <dl class="dl-horizontal">
+              <dt class="span2">公告/备注</dt>
+              <dd class="span9">
+                <pre><?php
+                  echo $date['bulletin'];
+                ?></pre>
+              </dd>
+            </dl>
 
-            <div class="controls span10">
-              <textarea rows="4" class="span10"
-                        id="bulletin" name="bulletin" placeholder=""><?php
-                echo $date['bulletin'];
-                ?></textarea>
-            </div>
           </div>
 
-          <div class="control-group">
-            <label class="control-label span2" for="member">
-              成员
-            </label>
-
-            <div class="controls span10">
-              <textarea rows="8" class="span10"
-                        id="member" name="member" placeholder="一行一个成员"><?php
+          <div class="row-fluid">
+            
+            <dl class="dl-horizontal">
+              <dt class="span2">成员</dt>
+              <dd class="span9">
+                <pre><?php
                 $member_array = get_date_member($id);
                 foreach ($member_array as $member){
                   echo $member['useremail']."\n";
                 }
-                ?></textarea>
-            </div>
+                ?></pre>
+              </dd>
+            </dl>
+
           </div>
 
-          <?php
-          if ($email == $date['useremail']){
-            ?>
-            <br/>
-
-            <button class="offset3 btn btn-large btn-warning" type="submit">
-              &nbsp;修改&nbsp;
-            </button>
-            <a class="offset1 btn btn-large btn-danger"
-              <?php
-              echo "href='delete_date.php?id=";
-              echo $id;
-              echo "'";
-              ?>
-              >
-              &nbsp;删除&nbsp;
-            </a>
-
-          <?php
-          }
-          ?>
         </form>
       </div>
 
@@ -166,11 +139,11 @@ do_html_header($date['title']);
   </div>
 
   <script type="text/javascript">
-      $(".form_datetime").datetimepicker({
-          language: 'zh-CN',
-          format: "yyyy-MM-dd hh:mm:ss",
-          autoclose: 1
-      });
+    $(".form_datetime").datetimepicker({
+      language: 'zh-CN',
+      format: "yyyy-MM-dd hh:mm:ss",
+      autoclose: 1
+    });
   </script>
 
 <?php

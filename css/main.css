@@ -1,6 +1,7 @@
 ﻿.maindiv {
     margin-top: 40px;
-    padding: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 footer {
@@ -58,6 +59,7 @@ footer {
  */
 .form-signin {
     max-width: 40%;
+    min-width: 200px;
     margin: 0 auto 20px;
     text-align: center;
 }
@@ -82,16 +84,20 @@ footer {
     margin-left: -50%;
 }
 
-/*
- * table
- * --------------------------------------------------
- */
-tr {
-    font-size: 16px;
-}
-
 .nav-list li {
     font-size: 20px;
     font-weight: bold;
     line-height: 200%;
+}
+
+pre {
+    font-size: 14px;
+}
+
+textarea {
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+    line-height: 20px;
+    word-break: break-all;
+    word-wrap: break-word;
+    padding: 9.5px;
 }

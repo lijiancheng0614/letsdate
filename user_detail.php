@@ -13,7 +13,7 @@ if (isset($_GET['user'])){
   $id = $_GET['user'];
 }
 $user = get_user_detail($id);
-do_html_header($user['email']);
+do_html_header("用户资料");
 ?>
 
   <div class="container">
@@ -28,53 +28,35 @@ do_html_header($user['email']);
           unset($_SESSION['error']);
         } ?>
 
-        <div class="control-group">
-          <label class="control-label span2" for="email">邮箱</label>
-
-          <div class="controls">
-            <input type="text" class="span9"
-                   id="email" name="email"
-              <?php
-              echo 'value="';
+        <dl class="dl-horizontal">
+          <dt class="span2">邮箱</dt>
+          <dd class="span9">
+            <?php
               echo $user['email'];
-              echo '"';
-              ?>
-                   disabled>
-          </div>
-        </div>
+            ?>
+          </dd>
+        </dl>
 
-        <div class="control-group">
-          <label class="control-label span2" for="name">昵称</label>
-
-          <div class="controls">
-            <input type="text" class="span9"
-                   id="name" name="name"
-              <?php
-              echo 'value="';
+        <dl class="dl-horizontal">
+          <dt class="span2">昵称</dt>
+          <dd class="span9">
+            <?php
               echo $user['name'];
-              echo '"';
-              ?>
-                   disabled>
-          </div>
-        </div>
+            ?>
+          </dd>
+        </dl>
 
         <?php
         if (!$user['is_phone_private'] && $user['phone']){
           ?>
-          <div class="control-group">
-            <label class="control-label span2" for="phone">手机号码</label>
-
-            <div class="controls">
-              <input type="text" class="span9"
-                     id="phone" name="phone"
-                <?php
-                echo 'value="';
+          <dl class="dl-horizontal">
+            <dt class="span2">手机号码</dt>
+            <dd class="span9">
+              <?php
                 echo $user['phone'];
-                echo '"';
-                ?>
-                     disabled>
-            </div>
-          </div>
+              ?>
+            </dd>
+          </dl>
         <?php
         }
         ?>
@@ -82,45 +64,30 @@ do_html_header($user['email']);
         <?php
         if (!$user['is_location_private'] && $user['location']){
           ?>
-          <div class="control-group">
-            <label class="control-label span2" for="location">所在地</label>
-
-            <div class="controls">
-              <input type="text" class="span9"
-                     id="location" name="location"
-                <?php
-                echo 'value="';
+          <dl class="dl-horizontal">
+            <dt class="span2">所在地</dt>
+            <dd class="span9">
+              <?php
                 echo $user['location'];
-                echo '"';
-                ?>
-                     disabled>
-            </div>
-          </div>
+              ?>
+            </dd>
+          </dl>
         <?php
         }
         ?>
 
-        <?php
-        if (!$user['is_intro_private'] && $user['intro']){
-          ?>
-          <div class="control-group">
-            <label class="control-label span2" for="intro">简介</label>
-
-            <div class="controls">
-              <textarea rows="4" class="span9"
-                        id="intro" name="intro" disabled><?php
-                echo $user['intro'];
-                ?></textarea>
-            </div>
-          </div>
-        <?php
-        }
-        ?>
+        <dl class="dl-horizontal">
+          <dt class="span2">简介</dt>
+          <dd class="span9">
+            <pre class="help-inline span10"
+              id="intro" name="intro"><?php
+                  echo $user['intro'];
+                ?></pre>
+          </dd>
+        </dl>
+          
       </div>
 
-      <?php
-      do_html_sidebar();
-      ?>
     </div>
   </div>
 

@@ -12,126 +12,115 @@ else{
 }
 do_html_header('账户设置');
 ?>
+
   <div class="container">
-    <form class="form-horizontal form-signin well"
-          method="post" action="user_setting.php">
-      <h2 class="form-signin-heading">账户设置</h2>
-      <br/>
-      <?php if (isset($_SESSION['error'])){
-        echo '<div class="alert alert-error">';
-        echo $_SESSION['error'];
-        echo "</div>";
-        unset($_SESSION['error']);
-      } ?>
-      <?php if (isset($_SESSION['success'])){
-        echo '<div class="alert alert-success">';
-        echo $_SESSION['success'];
-        echo "</div>";
-        unset($_SESSION['success']);
-      } ?>
+    <div class="row-fluid">
+      <form class="span9 form-horizontal well"
+            method="post" action="user_setting.php">
+        <h2>账户设置</h2>
+        <br/>
+        <?php if (isset($_SESSION['error'])){
+          echo '<div class="alert alert-error">';
+          echo $_SESSION['error'];
+          echo "</div>";
+          unset($_SESSION['error']);
+        } ?>
+        <?php if (isset($_SESSION['success'])){
+          echo '<div class="alert alert-success">';
+          echo $_SESSION['success'];
+          echo "</div>";
+          unset($_SESSION['success']);
+        } ?>
 
-      <div class="control-group">
-        <label class="control-label" for="email">邮箱</label>
-
-        <div class="controls">
-          <input type="text"
-                 id="email" name="email" placeholder="邮箱"
-            <?php
-            echo 'value="';
-            echo $user['email'];
-            echo '"';
-            ?>
-                 disabled>
-        </div>
-      </div>
-
-      <div class="control-group">
-        <label class="control-label" for="username">昵称</label>
-
-        <div class="controls">
-          <input type="text"
-                 id="username" name="username" placeholder="昵称"
-            <?php
-            echo 'value="';
-            echo $user['name'];
-            echo '"';
-            ?>
-                 required>
-        </div>
-      </div>
-
-      <div class="control-group">
-        <label class="control-label" for="phone">手机号码</label>
-
-        <div class="controls">
-          <input type="text"
-                 id="phone" name="phone" placeholder="请输入手机号码"
-            <?php
-            echo 'value="';
-            echo $user['phone'];
-            echo '"';
-            ?>
-            >
-          <label class="checkbox pull-right">
-            <input type="checkbox" id="checkbox"
-                   name="checkbox[]" value="is_phone_private"
+        <dl class="dl-horizontal">
+          <dt class="span2">邮箱</dt>
+          <dd class="span9">
+            <input type="text"
+                   id="email" name="email" placeholder="邮箱"
               <?php
-              if ($user['is_phone_private'])
-                echo "checked";
+              echo 'value="';
+              echo $user['email'];
+              echo '"';
               ?>
-              >不公开
-          </label>
-        </div>
-      </div>
+              disabled>
+          </dd>
+        </dl>
 
-      <div class="control-group">
-        <label class="control-label" for="location">所在地</label>
-
-        <div class="controls">
-          <input type="text"
-                 id="location" name="location" placeholder="请输入您的所在地"
-            <?php
-            echo 'value="';
-            echo $user['location'];
-            echo '"';
-            ?>
-            >
-          <label class="checkbox pull-right">
-            <input type="checkbox" id="checkbox"
-                   name="checkbox[]" value="is_location_private"
+        <dl class="dl-horizontal">
+          <dt class="span2">昵称</dt>
+          <dd class="span9">
+            <input type="text"
+                   id="username" name="username" placeholder="昵称"
               <?php
-              if ($user['is_location_private'])
-                echo "checked";
+              echo 'value="';
+              echo $user['name'];
+              echo '"';
               ?>
-              >不公开
-          </label>
-        </div>
-      </div>
+              required>
+          </dd>
+        </dl>
 
-      <div class="control-group">
-        <label class="control-label" for="intro">简介</label>
-
-        <div class="controls">
-          <textarea rows="4" placeholder="请输入简介"
-                    id="intro" name="intro"><?php
-            echo $user['intro'];
-            ?></textarea>
-          <label class="checkbox pull-right">
-            <input type="checkbox" id="checkbox"
-                   name="checkbox[]" value="is_intro_private"
+        <dl class="dl-horizontal">
+          <dt class="span2">手机号码</dt>
+          <dd class="span9">
+            <input type="text"
+                   id="phone" name="phone" placeholder="请输入手机号码"
               <?php
-              if ($user['is_intro_private'])
-                echo "checked";
+              echo 'value="';
+              echo $user['phone'];
+              echo '"';
               ?>
-              >不公开
-          </label>
-        </div>
-      </div>
+              >
+            <label class="offset2 help-inline checkbox">
+              <input type="checkbox" id="checkbox"
+                     name="checkbox[]" value="is_phone_private"
+                <?php
+                if ($user['is_phone_private'])
+                  echo "checked";
+                ?>
+                >不公开
+            </label>
+          </dd>
+        </dl>
 
-      <button class="btn btn-large btn-primary" type="submit">
-        &nbsp;保存&nbsp;
-      </button>
-    </form>
+        <dl class="dl-horizontal">
+          <dt class="span2">所在地</dt>
+          <dd class="span9">
+            <input type="text"
+                   id="location" name="location" placeholder="请输入您的所在地"
+              <?php
+              echo 'value="';
+              echo $user['location'];
+              echo '"';
+              ?>
+              >
+            <label class="offset2 help-inline checkbox">
+              <input type="checkbox" id="checkbox"
+                     name="checkbox[]" value="is_location_private"
+                <?php
+                if ($user['is_location_private'])
+                  echo "checked";
+                ?>
+                >不公开
+            </label>
+          </dd>
+        </dl>
+
+        <dl class="dl-horizontal">
+          <dt class="span2">简介</dt>
+          <dd class="span9">
+            <textarea class="help-inline span10" rows="4" placeholder="请输入简介"
+                      id="intro" name="intro"><?php
+              echo $user['intro'];
+              ?></textarea>
+          </dd>
+        </dl>
+
+        <button class="offset3 btn btn-large btn-primary" type="submit">
+          &nbsp;保存&nbsp;
+        </button>
+      </form>
+    </div>
   </div>
 
 <?php
