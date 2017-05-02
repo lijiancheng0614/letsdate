@@ -8,7 +8,7 @@ function do_html_header($title)
     <title>Let's Date - <?php echo $title; ?></title>
     <meta name="description" content="letsdate">
     <meta http-equiv="Content-Type" content="text/html; charset=unicode">
-    <meta name="author" content="LiJiancheng" charset="utf-8">
+    <meta name="author" content="Jiancheng Li" charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css"/>
@@ -190,7 +190,7 @@ function do_html_footer()
   <a id="scrollUp" href="#top" title="" style="position: fixed; z-index: 2147483647"></a>
   <hr>
   <footer>
-    <p class="text-center">&copy; LiJiancheng 2014</p>
+    <p class="text-center">Copyrights &copy; <a href="http://lijiancheng0614.github.io/">Jiancheng Li</a> 2014</p>
   </footer>
   </div>
   </body>

@@ -21,7 +21,7 @@ do_html_header('推荐聚会');
     } ?>
     <div class="row-fluid">
       <div class="span9">
-        <h2>发起的聚会</h2>
+        <h2>推荐的聚会</h2>
         <br/>
         <?php
         do_html_table($date_array);

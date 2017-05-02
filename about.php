@@ -51,8 +51,8 @@ do_html_header('关于');
       如：
       <br/>
       <code>
-        试试在简介中输入&lt;a href="http://blog.sina.com.cn/lijiancheng5201314"&gt;
-        我的blog
+        试试在简介中输入&lt;a href="http://lijiancheng0614.github.io/"&gt;
+        我的网站
         &lt;/a&gt;
       </code>
     </li>
@@ -62,13 +62,13 @@ do_html_header('关于');
 
   <h3>联系我</h3>
 
-  <p>LiJiancheng</p>
+  <p>Jiancheng Li</p>
 
   <p>email: lijiancheng0614@gmail.com</p>
 
   <p>blog:
-    <a href="http://blog.sina.com.cn/lijiancheng5201314">
-      http://blog.sina.com.cn/lijiancheng5201314
+    <a href="http://lijiancheng0614.github.io/">
+      http://lijiancheng0614.github.io/
     </a>
   </p>
 
